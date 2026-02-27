@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="sellerInvoiceInfo" key="selection"/>
+		<item value="true" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="buyerInvoiceInfo"/>
+			<item value="TAX_ID1"/>
+			<item value="RATE"/>
+			<item value="TAX_RATE"/>
+			<item value="INVOICE_TYPE"/>
+			<item value="STATUS"/>
+			<item value="CUS_CHAR4"/>
+			<item value="BANK_BRANCH_NAME"/>
+		</list>
+		<list key="replacehistory">
+			<item value="sellerInvoiceInfo"/>
+			<item value="TRANSACTION_NUMBER"/>
+			<item value="TAX_PERCENT1"/>
+			<item value="CONVER_RATE"/>
+			<item value="INVOICE_SYMBOL"/>
+			<item value="ATTRIBUTE1"/>
+			<item value="INVOICE_SERIAL"/>
+			<item value="INVOICE_NUM"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="257" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="381" key="DIALOG_HEIGHT"/>
+		<item value="1217" key="DIALOG_X_ORIGIN"/>
+		<item value="122" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

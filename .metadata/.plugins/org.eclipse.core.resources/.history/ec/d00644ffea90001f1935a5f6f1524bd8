@@ -1,0 +1,21 @@
+
+public class OM_MAIN {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+//		String header_id = "57472";
+		String header_id = "56132";
+		String json_string = create_json_string.invoice_draft(header_id);
+//		String json_string = create_json_string.invoice(header_id);
+//		String result = Publish_invoice.invokeApi(json_string);
+//		runOnOtherJDK.create_invoice_draft_RT("56134");
+//		String fileName = Preview_invoice.preview_invoice(json_string,header_id);
+		String fileName = Preview_invoice.preview_invoice_draft(json_string,header_id);
+		System.out.println(json_string);
+//		System.out.println(result);
+		System.out.println("File name: " + fileName);
+	}
+}

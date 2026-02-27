@@ -1,0 +1,155 @@
+import org.jdesktop.jdic.desktop.Desktop;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.io.*;
+import org.json.JSONObject;
+
+/**
+ * 
+ * @author ADMIN
+ */
+public class Preview_invoice {
+
+	/**
+	 * @param args
+	 *            the command line arguments
+	 */
+	public static String preview_invoice(String json_string, String header_id) throws Exception {
+		// TODO code application logic here
+		String fileName = "";
+		// general invoice info
+
+		try {
+			/**
+			String username = "0100109106-507";
+			String password = "2wsxCDE#";
+			String const_url = "https://api-vinvoice.viettel.vn/"
+					+ "services/einvoiceapplication/api/";
+			String method_url = "InvoiceAPI/InvoiceUtilsWS/createInvoiceDraftPreview/";
+
+			String taxCode = URLEncoder.encode("0100109106-507", "UTF-8");
+			// String token_url = "auth/login";
+			// // Request config
+			// URL complete_url_token = new
+			// URL("https://api-vinvoice.viettel.vn/" + token_url);
+			// HttpURLConnection con_token = (HttpURLConnection)
+			// complete_url_token.openConnection();
+			// con_token.setRequestMethod("POST");
+			// // Header Config
+			// con_token.setRequestProperty("Content-type", "application/json");
+			// con_token.setRequestProperty("charset", "utf-8");
+			//
+			// // Body Config
+			// String input = "{\"username\":\"" + username + "\"," +
+			// "\"password\":\"" + password + "\"}";
+			// con_token.setConnectTimeout(30000);
+			// con_token.setReadTimeout(30000);
+			//
+			// con_token.setDoOutput(true);
+			// DataOutputStream out_token = new
+			// DataOutputStream(con_token.getOutputStream());
+			// out_token.writeBytes(input);
+			// out_token.flush();
+			// out_token.close();
+			// if (con_token.getResponseCode() != HttpURLConnection.HTTP_OK) {
+			// throw new RuntimeException("Failed : HTTP error code : " +
+			// con_token.getResponseCode());
+			// }
+			//
+			// BufferedReader br_token = new BufferedReader(new
+			// InputStreamReader((con_token.getInputStream())));
+			// System.out.println("Output from Server .... \n");
+			// String res_token = br_token.readLine();
+			// JSONObject obj_token = new JSONObject(res_token);
+			// String result_token = obj_token.getString("access_token");
+			// System.out.println(result_token);
+			// con_token.disconnect();
+			// Request config
+			URL complete_url = new URL(const_url + method_url + taxCode
+			// + "?token="+result_token
+			);
+			HttpURLConnection con = (HttpURLConnection) complete_url
+					.openConnection();
+			con.setRequestMethod("POST");
+//			System.out.println(complete_url);
+
+			String userpass = username + ":" + password;
+			String basicAuth = "Basic "
+					+ Base64.encodeBase64String(userpass.getBytes("UTF-8"));
+//			System.out.println(basicAuth);
+			/**
+			 * *******Attention*********
+			 */
+			/**
+			// Header Config
+			con.setRequestProperty("Content-type", "application/json");
+			con.setRequestProperty("Accept", "application/json");
+			con.setRequestProperty("Authorization", basicAuth);
+			con.setRequestProperty("charset", "UTF-8");
+
+			con.setConnectTimeout(30000);
+			con.setReadTimeout(30000);
+
+			con.setDoOutput(true);
+			DataOutputStream out = new DataOutputStream(con.getOutputStream());
+
+			/**
+			 * *********** Attention: don't delete two comment below it's may be
+			 * useful when InvoiceInfo not give request properly uncomment and
+			 * replace InvoiceInfo by payloadBytes ***********
+			 */
+			/**
+			// String jsonPayload = InvoiceInfo.toString();
+			// byte[] payloadBytes = jsonPayload.getBytes("UTF-8");
+			out.write(json_string.getBytes("UTF-8"));
+
+			out.flush();
+			out.close();
+
+			int responseCode = con.getResponseCode();
+			if (responseCode != HttpURLConnection.HTTP_OK) {
+				throw new RuntimeException("Failed : HTTP error code : "
+						+ responseCode);
+			}
+
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					con.getInputStream()));
+
+//			System.out.println("Output from Server .... \n");
+
+			// JSONArray res = new JSONArray(br.toString());
+			String res = br.readLine();
+			JSONObject obj = new JSONObject(res);
+			String fileToBytes = obj.optString("fileToBytes", "");
+			fileName = obj.optString("fileName", "");
+			**/
+			String fileToBytes = "VGjGsMyJIG5naGnDqsyjbSBrw6rMgXQgbsO0zIFpIEFQSSBixIPMgG5nIFBvc3RtYW4KQVBJIHRoxrDMiSBuZ2hpw6rMo206IApMw6LMo3AgaG/MgWEgxJHGoW4gbmhhzIFwClhlbSB0csawxqHMgWMgaG/MgWEgxJHGoW4KVHJhIGPGsMyBdSBixIPMgG5nIHRyYW5zYWN0aW9uVXVpZApMw6LMgXkgZGFuaCBzYcyBY2ggbcOizIN1IHZhzIAga3nMgSBoacOqzKN1IGhvzIFhIMSRxqFuIHRoZW8gbWHMgyBzw7TMgSB0aHXDqsyBCkzDosyBeSB0b2tlbiBpZApUYcyjbyBmaWxlIGphdmEgdmHMgCB0aMawzIkgbmdoacOqzKNtIGvDqsyBdCBuw7TMgWkgQVBJICggdGhhzIBuaCBjw7RuZywgY2/MgSB0aMOqzIkgY2hhzKN5IGpkayAxLjYgdHLGocyJIGzDqm4pCsSQxrBhIHZhzIBvIHNlcnZlciB2YcyAIHRoxrDMiSBuZ2hpw6rMo20gY2hhzKN5IHRoxrDMiSB0aHXMiSBjw7RuZyAoIHRoYcyAbmggY8O0bmcpClRpzIFjaCBoxqHMo3AgamF2YSB2YcyAbyBvcmFjbGU6IChrZcyjdCDGocyJIMSRw6J5KQpRdWEgZGF0YWJhc2U6CkxvYWQgamF2YSB0aGHMgG5oIGNoxrDMgWMgbsSDbmcgY3XMiWEgb3JhY2xlIERhdGFiYXNlOiAoIGRhdGFiYXNlIGNvzIEgamRrIGxhzIAgMS41LCBuw6rMgXUgxJFpIHRoZW8gaMawxqHMgW5nIG5hzIB5IHNlzIMgbMawxqHMo2MgYm/MiSB2YcyAIHZpw6rMgXQgbGHMo2kgdG9hzIBuIGLDtMyjIGNvZGUpCgpHb8yjaSBBUEkgdHLGsMyjYyB0acOqzIFwIHTGsMyAIE9yYWNsZSBkYXRhYmFzZSBixIPMgG5nIGhhzIBtICBIVFRQU19VVElMUyAoIGNoacyJIGNvzIEgdGnMgG0gxJHGsMahzKNjIDMgdGHMgGkgbGnDqsyjdSB2w6rMgCB0aMO0bmcgdGluIGxpw6puIHF1YW4sIG3GoSBow7TMgCkKClF1YSBGb3JtIGJ1aWxkZXI6ClPGsMyJIGR1zKNuZyBpbXBvcnQgamF2YSBDbGFzc2VzIMSRw6rMiSBsw6LMgXkgaGHMgG0gamF2YSB0aGHMgG5oIGNoxrDMgWMgbsSDbmcgxJHDqsyJIGdvzKNpIEFQSSgga2hpIGhhzIBtIMSRxrDGocyjYyDEkcawYSB2YcyAbyBuaMawbmcgZm9ybSBidWlsZGVyIGtow7RuZyB0acyAbSByYSDEkcawxqHMgG5nIGTDosyDbiBuaMawbmcgbmjGsMyDbmcgaGHMgG0gY3XMiWEgamRrIHRoacyAIGZvcm0gYnVpbGRlciB0aMawzKNjIGhpw6rMo24gaG9hzIBuIHRvYcyAbiBiacyAbmggdGjGsMahzIBuZykKClPGsMyJIGR1zKNuZyBKYXZhIEJlYW4gdmHMgG8gb3JhY2xlIGZvcm0oIGNoxrBhIHRoxrDMiSBuZ2hpw6rMo20sIHF1YSBjbGljayBjaHXDtMyjdCBzZcyDIGhpw6rMo24gcmEgbcO0zKN0IGZvcm0gbWHMgG4gaGnMgG5oIGN1zIlhIGphdmEgaGnDqsyJbiB0aGnMoyB0aMO0bmcgdGluIHRpzIBuaCB0cmHMo25nIGzDosyjcCBob8yBYSDEkcahbiDEkWnDqsyjbiB0xrDMiSkKIApRdWEgcGjDosyAbiBtw6rMgG0gdGnMgWNoIGjGocyjcCBiw6puIG5nb2HMgGk6ICggxJFhbmcgdGnMgG0gaGnDqsyJdSkKU08gb25saW5lICggdGnMgG5oIHRyYcyjbmcgdGHMgGkgbGnDqsyjdSBraMO0bmcgxJF1zIkgdGjDtG5nIHRpbiwga2jDtG5nIMSRxINuZyBuaMOizKNwIHZhzIAga2jDtG5nIG7Eg8yBbSByb8yDIMSRxrDGocyjYyBmaWxlIGNvZGUpCgoyOS8wOAoKVGjGsMyjYyBoacOqzKNuIHRoZW8gY2HMgWNoIHRoxrDMgWMgdGjGsMyBIG5ow6LMgXQgbGHMgCBnaWHMiW0gcGhpw6puIGJhzIluIGN1zIlhIGNvZGUgamF2YSB4dcO0zIFuZyAxLjUKVGjGsMyjYyBoacOqzKNuIHZhzIAgdGjGsMyJIG5naGnDqsyjbSDGocyJIG1hzIF5IHRpzIFuaCBjYcyBIG5ow6JuICggaG9hzIBuIHRoYcyAbmgpCg==";
+			fileName = "test.pdf";
+			// System.out.println(res);
+
+			byte[] decodedBytes = Base64.decodeBase64(fileToBytes);
+
+			File file_v2 = new File("C:\\"+header_id+"_"+fileName);
+			
+			FileUtils.writeByteArrayToFile(file_v2, decodedBytes);
+			fileName = file_v2.toString();
+			if (file_v2.toString().endsWith(".pdf")) {
+				Runtime.getRuntime().exec(
+						"rundll32 url.dll,FileProtocolHandler " + file_v2);
+			} else {
+				System.out.print("File Not Exist");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fileName;
+	}
+
+}

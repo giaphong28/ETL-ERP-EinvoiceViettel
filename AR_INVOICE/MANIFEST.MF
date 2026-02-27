@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: . plugin/commons-codec-1.6.jar plugin/json-20140107.jar plugin/jdic-all.jar plugin/ojdbc5-11.2.0.4.jar plugin/bcprov-jdk1
+ 5on-1.70.jar plugin/commons-io-2.2.jar
+Main-Class: AR_MAIN

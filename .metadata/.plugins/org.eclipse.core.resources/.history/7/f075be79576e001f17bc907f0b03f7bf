@@ -1,0 +1,164 @@
+import org.jdesktop.jdic.desktop.Desktop;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.io.*;
+import org.json.JSONObject;
+
+/**
+ * 
+ * @author ADMIN
+ */
+public class Preview_invoice {
+
+	/**
+	 * @param args
+	 *            the command line arguments
+	 */
+	public static String preview_invoice(String json_string, String header_id)
+			throws Exception {
+		// TODO code application logic here
+		String fileName = "";
+		// general invoice info
+
+		try {
+
+			String username = "0100109106-507";
+			String password = "2wsxCDE#";
+			String const_url = "https://api-vinvoice.viettel.vn/"
+					+ "services/einvoiceapplication/api/";
+			String method_url = "InvoiceAPI/InvoiceUtilsWS/createInvoiceDraftPreview/";
+
+			// setup cacert path
+			System.setProperty("javax.net.ssl.trustStore",
+					"E:\\FORMS\\EINVOICE\\plugin\\cacerts");
+
+			System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+			
+			System.setProperty("javax.net.ssl.keyStore",
+		    		"C:\\Users\\Administrator\\AppData\\LocalLow\\Sun\\Java\\Deployment\\security\\trusted.certs");
+
+		    System.setProperty("javax.net.ssl.keyStorePassword", "changeit");
+
+			String taxCode = URLEncoder.encode("0100109106-507", "UTF-8");
+			// String token_url = "auth/login";
+			// // Request config
+			// URL complete_url_token = new
+			// URL("https://api-vinvoice.viettel.vn/" + token_url);
+			// HttpURLConnection con_token = (HttpURLConnection)
+			// complete_url_token.openConnection();
+			// con_token.setRequestMethod("POST");
+			// // Header Config
+			// con_token.setRequestProperty("Content-type", "application/json");
+			// con_token.setRequestProperty("charset", "utf-8");
+			//
+			// // Body Config
+			// String input = "{\"username\":\"" + username + "\"," +
+			// "\"password\":\"" + password + "\"}";
+			// con_token.setConnectTimeout(30000);
+			// con_token.setReadTimeout(30000);
+			//
+			// con_token.setDoOutput(true);
+			// DataOutputStream out_token = new
+			// DataOutputStream(con_token.getOutputStream());
+			// out_token.writeBytes(input);
+			// out_token.flush();
+			// out_token.close();
+			// if (con_token.getResponseCode() != HttpURLConnection.HTTP_OK) {
+			// throw new RuntimeException("Failed : HTTP error code : " +
+			// con_token.getResponseCode());
+			// }
+			//
+			// BufferedReader br_token = new BufferedReader(new
+			// InputStreamReader((con_token.getInputStream())));
+			// System.out.println("Output from Server .... \n");
+			// String res_token = br_token.readLine();
+			// JSONObject obj_token = new JSONObject(res_token);
+			// String result_token = obj_token.getString("access_token");
+			// System.out.println(result_token);
+			// con_token.disconnect();
+			// Request config
+			URL complete_url = new URL(const_url + method_url + taxCode
+			// + "?token="+result_token
+			);
+			HttpURLConnection con = (HttpURLConnection) complete_url
+					.openConnection();
+			con.setRequestMethod("POST");
+			// System.out.println(complete_url);
+
+			String userpass = username + ":" + password;
+			String basicAuth = "Basic "
+					+ Base64.encodeBase64String(userpass.getBytes("UTF-8"));
+			// System.out.println(basicAuth);
+			/**
+			 * *******Attention*********
+			 */
+
+			// Header Config
+			con.setRequestProperty("Content-type", "application/json");
+			con.setRequestProperty("Accept", "application/json");
+			con.setRequestProperty("Authorization", basicAuth);
+			con.setRequestProperty("charset", "UTF-8");
+
+			con.setConnectTimeout(30000);
+			con.setReadTimeout(30000);
+
+			con.setDoOutput(true);
+			DataOutputStream out = new DataOutputStream(con.getOutputStream());
+
+			/**
+			 * *********** Attention: don't delete two comment below it's may be
+			 * useful when InvoiceInfo not give request properly uncomment and
+			 * replace InvoiceInfo by payloadBytes ***********
+			 */
+
+			// String jsonPayload = InvoiceInfo.toString();
+			// byte[] payloadBytes = jsonPayload.getBytes("UTF-8");
+			out.write(json_string.getBytes("UTF-8"));
+
+			out.flush();
+			out.close();
+
+			int responseCode = con.getResponseCode();
+			if (responseCode != HttpURLConnection.HTTP_OK) {
+				throw new RuntimeException("Failed : HTTP error code : "
+						+ responseCode);
+			}
+
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					con.getInputStream()));
+
+			// System.out.println("Output from Server .... \n");
+
+			// JSONArray res = new JSONArray(br.toString());
+			String res = br.readLine();
+			JSONObject obj = new JSONObject(res);
+			String fileToBytes = obj.optString("fileToBytes", "");
+			fileName = obj.optString("fileName", "");
+			// System.out.println(res);
+
+			byte[] decodedBytes = Base64.decodeBase64(fileToBytes);
+
+			File file_v2 = new File("C:\\" + header_id + "_" + fileName);
+
+			FileUtils.writeByteArrayToFile(file_v2, decodedBytes);
+			fileName = file_v2.toString();
+			if (file_v2.toString().endsWith(".pdf")) {
+				Runtime.getRuntime().exec(
+						"rundll32 url.dll,FileProtocolHandler " + file_v2);
+			} else {
+				System.out.print("File Not Exist");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fileName;
+	}
+
+}

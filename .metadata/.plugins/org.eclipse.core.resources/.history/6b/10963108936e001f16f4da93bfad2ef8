@@ -1,0 +1,172 @@
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.security.Provider;
+import java.security.Provider.Service;
+import java.security.Security;
+import java.util.TreeSet;
+
+import org.apache.commons.codec.binary.Base64;
+//import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.json.JSONObject;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+public class Create_invoice_draft {
+	public static String getStackTrace(final Throwable throwable) {
+		final StringWriter sw = new StringWriter();
+		final PrintWriter pw = new PrintWriter(sw, true);
+		throwable.printStackTrace(pw);
+		return sw.getBuffer().toString();
+	}
+
+	public static String getProviderSign() {
+		String result = "";
+		TreeSet<String> algorithms = new TreeSet<String>();
+		for (Provider provider : Security.getProviders())
+			for (Service service : provider.getServices())
+				if (service.getType().equals("Signature"))
+					algorithms.add(service.getAlgorithm());
+		for (String algorithm : algorithms)
+			result += algorithm + "\n";
+		return result;
+	}
+
+	public static String invokeApi(String json_string) throws Exception {
+
+		JSONObject obj = new JSONObject();
+		String error_str = "connection wrong?";
+		System.setProperty("javax.net.ssl.trustStore",
+				"E:\\FORMS\\EINVOICE\\plugin\\cacerts");
+		try {
+			String username = "0100109106-507";
+			String password = "2wsxCDE#";
+			String const_url = "https://api-vinvoice.viettel.vn/"
+					+ "services/einvoiceapplication/api/";
+			String method_url = "InvoiceAPI/InvoiceWS/createOrUpdateInvoiceDraft/";
+
+			String taxCode = URLEncoder.encode("0100109106-507", "UTF-8");
+
+			// setup cacert path
+
+			System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+
+			System.setProperty(
+					"javax.net.ssl.keyStore",
+					"C:\\Users\\Administrator\\AppData\\LocalLow\\Sun\\Java\\Deployment\\security\\trusted.certs");
+			//Security.addProvider(new BouncyCastleProvider());
+			// System.setProperty("javax.net.ssl.keyStorePassword", "changeit");
+
+			/**
+			 * String token_url = "auth/login"; // Request config URL
+			 * complete_url_token = new URL("https://api-vinvoice.viettel.vn/" +
+			 * token_url); HttpURLConnection con_token = (HttpURLConnection)
+			 * complete_url_token.openConnection();
+			 * con_token.setRequestMethod("POST"); // Header Config
+			 * con_token.setRequestProperty("Content-type", "application/json");
+			 * con_token.setRequestProperty("charset", "utf-8");
+			 * 
+			 * // Body Config String input = "{\"username\":\"" + username +
+			 * "\"," + "\"password\":\"" + password + "\"}";
+			 * 
+			 * con_token.setConnectTimeout(30000);
+			 * con_token.setReadTimeout(30000);
+			 * 
+			 * con_token.setDoOutput(true); System.out.println(input);
+			 * DataOutputStream out_token = new
+			 * DataOutputStream(con_token.getOutputStream());
+			 * out_token.write(input.getBytes("UTF-8")); out_token.flush();
+			 * out_token.close(); if (con_token.getResponseCode() !=
+			 * HttpURLConnection.HTTP_OK) { throw new
+			 * RuntimeException("Failed : HTTP error code : " +
+			 * con_token.getResponseCode()); }
+			 * 
+			 * BufferedReader br_token = new BufferedReader(new
+			 * InputStreamReader((con_token.getInputStream())));
+			 * System.out.println("Output from Server .... \n"); String
+			 * res_token = br_token.readLine(); JSONObject obj_token = new
+			 * JSONObject(res_token); String result_token =
+			 * obj_token.getString("access_token");
+			 * System.out.println(result_token); con_token.disconnect();
+			 **/
+			String userpass = username + ":" + password;
+			String basicAuth = "Basic "
+					+ Base64.encodeBase64String(userpass.getBytes("UTF-8"));
+			// Request config
+			URL complete_url = new URL(const_url + method_url + taxCode);
+			HttpURLConnection con = (HttpURLConnection) complete_url
+					.openConnection();
+			con.setRequestMethod("POST");
+
+			/**
+			 * *******Attention*********
+			 */
+			// Header Config
+			con.setRequestProperty("Content-type", "application/json");
+			con.setRequestProperty("Accept", "application/json");
+			con.setRequestProperty("Authorization", basicAuth);
+			con.setRequestProperty("charset", "UTF-8");
+
+			con.setConnectTimeout(30000);
+			con.setReadTimeout(30000);
+
+			con.setDoOutput(true);
+			DataOutputStream out = new DataOutputStream(con.getOutputStream());
+
+			/**
+			 * *********** Attention: don't delete two comment below it's may be
+			 * useful when InvoiceInfo not give request properly uncomment and
+			 * replace InvoiceInfo by payloadBytes ***********
+			 */
+			// String jsonPayload = InvoiceInfo.toString();
+			// byte[] payloadBytes = jsonPayload.getBytes("UTF-8");
+			out.write(json_string.getBytes("UTF-8"));
+
+			out.flush();
+			out.close();
+
+			int responseCode = con.getResponseCode();
+			if (responseCode != HttpURLConnection.HTTP_OK) {
+				error_str = con.getResponseMessage();
+				throw new RuntimeException("Failed : HTTP error code : "
+						+ responseCode);
+			}
+
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					con.getInputStream()));
+
+			// System.out.println("Output from Server .... \n");
+
+			// JSONArray res = new JSONArray(br.toString());
+			String res = br.readLine();
+			obj = new JSONObject(res);
+			// JSONObject res_result = obj.getJSONObject("result");
+			// String result_invoiceNo = res_result.getString("invoiceNo");
+			// String result_supplierTaxCode =
+			// res_result.getString("supplierTaxCode");
+			// String result_codeOfTax = res_result.optString("codeOfTax","");
+			// String result_transactionID =
+			// res_result.getString("transactionID");
+			// String result_reservationCode =
+			// res_result.getString("reservationCode");
+			// System.out.println(result_invoiceNo);
+			// System.out.println(result_supplierTaxCode);
+			// System.out.println(result_transactionID);
+			// System.out.println(result_reservationCode);
+			// System.out.println(obj.toString(1));
+			// System.out.println(res_result.toString(1));
+			// System.out.println(res);
+		} catch (Exception e) {
+			error_str = getStackTrace(e);
+			// error_str =
+			// "Trust store:"+System.getProperty("javax.net.ssl.trustStore")
+			// +"\nKey store:"+ System.getProperty("javax.net.ssl.keyStore");
+		}
+		return error_str;
+	}
+}

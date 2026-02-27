@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0" version="1.5.0_11">
+<bootpath>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0\lib\rt.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0\lib\i18n.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0\lib\sunrsasign.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0\lib\jsse.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0\lib\jce.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0\lib\charsets.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jre\1.5.0\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Program Files\Java\jdk1.6.0_45\jre" version="1.6.0_45">
+<bootpath>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\lib\resources.jar"/>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\lib\rt.jar"/>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\lib\jsse.jar"/>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\lib\jce.jar"/>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\lib\charsets.jar"/>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\lib\modules\jdk.boot.jar"/>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files\Java\jdk1.6.0_45\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="E:\oracle\product\11.2.0\dbhome_1\jdk" version="1.5.0_17">
+<bootpath>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\rt.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\i18n.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\sunrsasign.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\jsse.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\jce.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\charsets.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="E:\oracle\product\11.2.0\dbhome_1\jdk\jre" version="1.5.0_17">
+<bootpath>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\rt.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\i18n.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\sunrsasign.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\jsse.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\jce.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\charsets.jar"/>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\oracle\product\11.2.0\dbhome_1\jdk\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master" version="1.5.0_13">
+<bootpath>
+<entry path="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master\jre\lib\rt.jar"/>
+<entry path="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master\jre\lib\i18n.jar"/>
+<entry path="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master\jre\lib\sunrsasign.jar"/>
+<entry path="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master\jre\lib\jsse.jar"/>
+<entry path="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master\jre\lib\jce.jar"/>
+<entry path="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master\jre\lib\charsets.jar"/>
+<entry path="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\FORMS\EINVOICE\plugin\jdk1.5.0_13-master\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Program Files\Java\jre1.8.0_211" version="1.8.0_211">
+<bootpath>
+<entry path="C:\Program Files\Java\jre1.8.0_211\lib\resources.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_211\lib\rt.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_211\lib\sunrsasign.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_211\lib\jsse.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_211\lib\jce.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_211\lib\charsets.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_211\lib\jfr.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_211\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files\Java\jre1.8.0_211\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files\Java\jre1.8.0_211\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Program Files (x86)\Java\jre1.8.0_121" version="1.8.0_121">
+<bootpath>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\lib\resources.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\lib\rt.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\lib\sunrsasign.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\lib\jsse.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\lib\jce.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\lib\charsets.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\lib\jfr.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files (x86)\Java\jre1.8.0_121\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>
