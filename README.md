@@ -71,7 +71,9 @@ String[] command = { "cmd", "/k",
 Đường dẫn đến file jar được xuất ra: "E:\\EINVOICE\\OM\_INVOICE.jar"
 
 Thông số đưa vào: header\_id, method\_id
-4. ### <a name="_toc182235362"></a><a name="_toc223193475"></a>Danh sách method\_Id:
+
+
+4. ## <a name="_toc182235362"></a><a name="_toc223193475"></a>Danh sách method\_Id:
 
 |method\_id|Chức năng|
 | :- | :- |
@@ -83,7 +85,9 @@ Thông số đưa vào: header\_id, method\_id
 Danh sách được lưu trong bảng HR.HR\_EINVOICE\_METHOD:
 
 `	`![A screenshot of a computer&#x0A;&#x0A;Description automatically generated](./source/Aspose.Words.ba6a2c4a-07ce-4992-a881-db4c2e588466.003.png)
-5. #### <a name="_toc182235363"></a><a name="_toc182235484"></a>Chức năng ở mục OM:
+
+
+5. ## <a name="_toc182235363"></a><a name="_toc182235484"></a>Chức năng ở mục OM:
 Tên: SYS.OM\_INVOICE
 
 Mô tả: hàm này sẽ lấy 2 thông số đầu vào là:
@@ -106,6 +110,8 @@ Cách tra cứu:
 
 - đăng nhập vào tài khoản ở đường link sau đó truy cập ở mục hóa đơn chưa phát hành trong thư mục hóa đơn chưa phát hành.
 - Nếu hóa đơn nháp được tạo ngày nào thì sẽ được lưu lúc đó
+
+
 6. ## <a name="_toc223193476"></a>Các bước cài đặt hóa đơn điện tử
 Bước 1: Sử dụng java manager để load file java ở trong thư mục .. chọn file runOnOtherJDK.java ở thư mục src và runOnOtherJDK.class ở thư mục bin
 
