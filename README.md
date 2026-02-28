@@ -1,24 +1,16 @@
 ﻿# <a name="_toc182235354"></a><a name="_toc223193469"></a>**TÀI LIỆU HƯỚNG DẪN HÓA ĐƠN ĐIỆN TỬ TÍCH HỢP (bản demo của API)**
 
 # <a name="_toc182235355"></a><a name="_toc223193470"></a>**MỤC LỤC**
-[TÀI LIỆU HƯỚNG DẪN HÓA ĐƠN ĐIỆN TỬ TÍCH HỢP (bản demo của API)](#_toc223193469)
-
-[MỤC LỤC](#_toc223193470)
 
 [1.	Các yếu tố môi trường của hệ thống (khi thực hiện tích hợp hóa đơn điện tử):](#_toc223193471)
 
 [2.	Nguyên lý hoạt động của chức năng](#_toc223193472)
 
-[2.1	Class gọi file jar chức năng hóa đơn:](#_toc223193473)
-
 [3.	Thông tin về các chức năng:](#_toc223193474)
-
-[3.1	Danh sách method_Id:](#_toc223193475)
 
 [4.	Các bước cài đặt hóa đơn điện tử](#_toc223193476)
 
 
-**\
 
 1. ## <a name="_toc182235356"></a><a name="_toc223193471"></a>Các yếu tố môi trường của hệ thống (khi thực hiện tích hợp hóa đơn điện tử):
 - JDK 1.6
