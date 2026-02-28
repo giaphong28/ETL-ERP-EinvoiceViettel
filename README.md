@@ -1,21 +1,21 @@
 ﻿# <a name="_toc182235354"></a><a name="_toc223193469"></a>**TÀI LIỆU HƯỚNG DẪN HÓA ĐƠN ĐIỆN TỬ TÍCH HỢP (bản demo của API)**
 
 # <a name="_toc182235355"></a><a name="_toc223193470"></a>**MỤC LỤC**
-[TÀI LIỆU HƯỚNG DẪN HÓA ĐƠN ĐIỆN TỬ TÍCH HỢP (bản demo của API)	1](#_toc223193469)
+[TÀI LIỆU HƯỚNG DẪN HÓA ĐƠN ĐIỆN TỬ TÍCH HỢP (bản demo của API)](#_toc223193469)
 
-[MỤC LỤC	2](#_toc223193470)
+[MỤC LỤC](#_toc223193470)
 
-[1.	Các yếu tố môi trường của hệ thống (khi thực hiện tích hợp hóa đơn điện tử):	3](#_toc223193471)
+[1.	Các yếu tố môi trường của hệ thống (khi thực hiện tích hợp hóa đơn điện tử):](#_toc223193471)
 
-[2.	Nguyên lý hoạt động của chức năng	3](#_toc223193472)
+[2.	Nguyên lý hoạt động của chức năng](#_toc223193472)
 
-[2.1	Class gọi file jar chức năng hóa đơn:	4](#_toc223193473)
+[2.1	Class gọi file jar chức năng hóa đơn:](#_toc223193473)
 
-[3.	Thông tin về các chức năng:	5](#_toc223193474)
+[3.	Thông tin về các chức năng:](#_toc223193474)
 
-[3.1	Danh sách method_Id:	5](#_toc223193475)
+[3.1	Danh sách method_Id:](#_toc223193475)
 
-[4.	Các bước cài đặt hóa đơn điện tử	5](#_toc223193476)
+[4.	Các bước cài đặt hóa đơn điện tử](#_toc223193476)
 
 
 **\
@@ -34,7 +34,7 @@ Ý tưởng thực hiện tổng quát:
 - Các project java phụ trách xử lý cho dữ liệu của từng nghiệp vụ ERP ( OM, PO, INV, AR) à export các project ra các file runnable jar tương ứng và database sử dụng cmd để gọi file jar để gọi API.
 - Để database có thể gọi file jar thì phải load các class của project vào database và dựa vào đó tạo procedure. Cuối cùng, gán quyền cho HR thì chức năng có thể khai báo và sử dụng ở Oracle Form.
 
-  ![](Aspose.Words.ba6a2c4a-07ce-4992-a881-db4c2e588466.001.png)
+  ![](./source/Aspose.Words.ba6a2c4a-07ce-4992-a881-db4c2e588466.001.png)
 
 
 
@@ -46,7 +46,7 @@ Ý tưởng thực hiện tổng quát:
 
 Các nguyên lý hoạt động của chức năng
 
-![](Aspose.Words.ba6a2c4a-07ce-4992-a881-db4c2e588466.002.png)
+![](./source/Aspose.Words.ba6a2c4a-07ce-4992-a881-db4c2e588466.002.png)
 
 Thư viện đã sử dụng:
 
@@ -87,7 +87,7 @@ Thông số đưa vào: header\_id, method\_id
 
 Danh sách được lưu trong bảng HR.HR\_EINVOICE\_METHOD:
 
-`	`![A screenshot of a computer&#x0A;&#x0A;Description automatically generated](Aspose.Words.ba6a2c4a-07ce-4992-a881-db4c2e588466.003.png)
+`	`![A screenshot of a computer&#x0A;&#x0A;Description automatically generated](./source/Aspose.Words.ba6a2c4a-07ce-4992-a881-db4c2e588466.003.png)
 1. #### <a name="_toc182235363"></a><a name="_toc182235484"></a>Chức năng ở mục OM:
 Tên: SYS.OM\_INVOICE
 
@@ -100,7 +100,7 @@ Cột hiện thị trạng thái khi sau khi gọi API: einvoice\_api\_status
 
 Cách sử dụng:  
 
-![](Aspose.Words.ba6a2c4a-07ce-4992-a881-db4c2e588466.004.png)
+![](./source/Aspose.Words.ba6a2c4a-07ce-4992-a881-db4c2e588466.004.png)
 
 - Chỉ cần thay đổi header\_id thì hàm sẽ lấy thông tin hóa đơn của chức năng đó trong database và gửi lên hóa đơn điện tử viettel
 - Lỗi có thể xảy ra có các nguyên nhân sau: 
